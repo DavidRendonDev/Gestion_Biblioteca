@@ -1,0 +1,38 @@
+﻿@model IEnumerable<GestionBiblioMVC.Models.Libros>
+
+@{
+    ViewData["Title"] = "Listado de Libros";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">+ Registrar Nuevo Libro</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Código</th>
+        <th>Ejemplares Disponibles</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var libro in Model)
+    {
+        <tr>
+            <td>@libro.Titulo</td>
+            <td>@libro.Autor</td>
+            <td>@libro.Codigo</td>
+            <td>@libro.EjemplaresDisponibles</td>
+            <td>
+                <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@libro.Id">Editar</a>
+                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@libro.Id">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model GestionBiblioMVC.Models.Libros
+
+@{
+    ViewData["Title"] = "Registrar Libro";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Titulo"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Autor"></label>
+        <input asp-for="Autor" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Codigo"></label>
+        <input asp-for="Codigo" class="form-control" />
+        <span asp-validation-for="Codigo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EjemplaresDisponibles"></label>
+        <input asp-for="EjemplaresDisponibles" type="number" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary mt-3">Volver</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
